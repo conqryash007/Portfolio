@@ -1,25 +1,18 @@
 import Layout from "./Layout.jsx";
 import SpaceScene from "./SpaceScene";
 import Home from "./Home";
-// Add import for the preview image
-import previewImage from "../resources/preview-image.jpeg";
 
-// Add a small component that returns the image
-function PreviewImage() {
-  return (
-    <img
-      src={previewImage}
-      alt="preview"
-      style={{ width: "100%", height: "auto" }}
-    />
-  );
-}
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
 
 const PAGES = {
   SpaceScene: SpaceScene,
+
   Home: Home,
-  // include new page in the pages map
-  PreviewImage: PreviewImage,
 };
 
 function _getCurrentPage(url) {
@@ -48,7 +41,6 @@ function PagesContent() {
         <Route path="/" element={<SpaceScene />} />
         <Route path="/SpaceScene" element={<SpaceScene />} />
         <Route path="/Home" element={<Home />} />
-        <Route path="/preview-image.jpeg" element={<PreviewImage />} />
       </Routes>
     </Layout>
   );
